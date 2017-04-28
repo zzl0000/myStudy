@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">  
+	    <title>怡臣优选3.0-运费模版</title>
+	    <link rel="stylesheet" href="css/public.css">	   
+	    <script src="js/jquery.min.js" ></script>
+	  	<script src=""></script>
+	</head>
+	<body>
+		<div class="carrige-head">
+			<div class="carrige-headLeft">
+				<ul>
+					<li class="carrige-name">
+						<a>快递单名称</a>					
+					</li>
+					<li class="carrige-open"><a>是否启用</a></li>
+					<li class="carrige-bg"><a>单据背景图</a></li>
+					<li class="carrige-size"><a>尺寸及偏移</a></li>
+					<li class="carrige-data"><a>单据打印项</a></li>
+				</ul>
+				<!--快递单名称-->
+				<div class="carrige-nameDemo d-none">		
+					<input type="text" />
+					<span>*请填写快递单名称</span>				
+				</div>
+				<!--是否启用-->
+				<div class="carrige-openDemo d-none"></div>
+				<!--单据背景图-->
+				<div class="carrige-bgDemo d-none"></div>
+				<!--尺寸及偏移-->
+				<div class="carrige-sizeDemo d-none"></div>
+				<!--单据打印项-->
+				<div class="carrige-dataDemo d-none"></div>
+			</div>
+			<div class="carrige-headRight">
+				<button class="carrige-test">打印测试</button>
+				<button class="carrige-save">保存模板</button>
+			</div>
+		</div>
+		<div class="carrige-canvas">
+			<div class="carrige-bgimg"></div>
+			<div class="carrige-content"></div>	
+		</div>
+	</body>
+</html>
+<!--<div id="div1" style="width: 100px; height: 100px; background: #CCCCCC; position: absolute; left: 500px; top: 200px;">
+	<input type="text" />
+</div>-->

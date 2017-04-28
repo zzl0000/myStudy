@@ -1,0 +1,13 @@
+{
+  "name": "express.ist",
+  "version": "1.0.0",
+  "description": "express instancing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "express": "3.x",
+    "hbs": "^4.0.1"
+  }
+}

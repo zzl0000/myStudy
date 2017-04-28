@@ -1,0 +1,234 @@
+!& webpack 常用命令 &!
+
+	npm install webpack -g   // 全局安装webpack
+	npm install webpack -g   // 全局安装webpack
+	npm init -y              //初始化默认的package.json文件
+	npm install webpack --save-dev   //下载webpack插件到node_modules 并在package.json文件中加上webpack的配置内容
+	webpack    //对项目进行打包
+	webpack   --watch   // 自动监控文件的改变
+	webpack  --display-modules  //打包时显示隐藏的模块
+	webpack  --display-chunks   //打包时显示chunks
+	npm install {whatever}-loader  --save-dev   //安装loader并将该loader配置到package.json文件中
+
+!& webpack 配置文档 &!
+//目前我有用到三个插件：CommonsChunkPlugin，UglifyJsPlugin，以及一个我自己定义的插件
+
+>>基本配置"demo"
+
+module.exports = {
+	    entry: "./entry.js",
+	    output: {
+	        path: __dirname,
+	        filename: "bundle.js"
+	    },
+	    module: {
+	        loaders: [
+	            { test: /\.css$/, loader: "style!css" }
+	        ]
+	    }
+	};
+
+	{
+	    ...
+	    "scripts": {
+	        "build": "NODE_ENV=production webpack --watch"
+	    }
+	    ...
+	}
+
+>> 配置多个入口文件
+
+	module.exports = {
+	    entry: {
+	        entry1_bundle: "./entry1.js",
+	        entry2_bundle: "./entry2.js"
+	    },
+	    output: {
+	        path: __dirname,
+	        filename: "[name].js"
+	    },
+	    module: {
+	        loaders: [
+	            { test: /\.css$/, loader: "style!css" }
+	        ]
+	    }
+	};
+
+>> 使用glob方式配置
+
+	var path = require('path'),
+	    glob = require('glob')  //需安装glob模块依赖
+	   function getEntries (globPath) {
+		  var files = glob.sync(globPath);
+		  var _entries = {}, entry, dirname, basename;
+
+		  for (var i = 0; i < files.length; i++) {
+		      entry = files[i];
+		      dirname = path.dirname(entry);
+		      basename = path.basename(entry, '.js');
+		      _entries[path.join(dirname, basename)] = './' + entry;
+		  	}
+		  return _entries;
+	  }
+
+>> 使用插件
+
+	module.exports = {
+	    // plugins 字段传入一个数组，里面是实例化后的各种插件
+	    plugins: [new webpack.optimize.CommonsChunkPlugin({
+	          name: 'vendor',
+	          minChunks: 3
+	    }),
+	    new webpack.optimize.UglifyJsPlugin([options]),
+
+	    ...
+	    ],
+	    entry: {
+	        entry1_bundle: "./entry1.js",
+	        entry2_bundle: "./entry2.js"
+	    },
+	    ...
+	};
+
+>> 优化模式 
+
+	entry: {
+	  vendor: ["vue", "other-lib"],
+	  ...
+	}
+	new CommonsChunkPlugin({
+	  name: "vendor",
+	  // 将minChunks设置为无穷大，就不会有不期望的内容进入vendor了
+	  minChunks: Infinity,
+
+	})	
+
+>> **UglifyJs　只在生产模式下使用　　&& UglifyJs 具体参考 UglifyJs2 的用法
+	var plugins = [new webpack.optimize.CommonsChunkPlugin([options])]
+	// npm scripts 配置的参数可以用上了
+	if(process.env.NODE_ENV == 'production'){
+	  plugins.push(new webpack.optimize.UglifyJsPlugin({
+	    compress: {
+	      warnings: false
+	    }
+	  }))
+	}
+
+>> 自定义 插件例子 
+	var chunkCombo = function(){};
+	    chunkCombo.prototype.apply = function(compiler, callback){
+		  compiler.plugin("emit", function(compilation, callback){
+		      compilation.chunks.map(function(chunk, key){
+
+		        var filename = chunk.name + '.shtml';
+		        var content = chunk.hash.slice(0,8);
+
+		        // 生成一个对应的新文件存储md5值
+		        compilation.assets[filename] = {
+		          source: function() {
+		              return content;
+		            },
+		            size: function() {
+		              return Buffer.byteLength(content, 'utf8') 
+		            }
+		        };
+		      })
+		      callback();
+		  });
+	    }
+
+>> 配置 loaders 
+
+module.exports = {
+	entry : {
+		entry1_bundle: "./entry1.js",
+   		entry2_bundle: "./entry2.js"
+	},
+	output: {
+      path: __dirname,
+      filename: "[name].js"
+  	},
+    module: {
+      loaders: [
+        { test: /\.vue$/, loader: 'vue-loader' },
+        { test: /\.css$/, loader: 'style-loader!css-loader' },
+        { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
+        //加载器之间用！连接，-loader可以省略不写
+        { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
+        { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
+      ]
+   }
+}
+
+
+>> 使用webpack-dev-server
+
+	module.exports = {
+		  entry: {
+		    entry1_bundle: "./entry1.js",
+		    entry2_bundle: "./entry2.js"
+		  },
+		  output: {
+		        path: __dirname,
+		        filename: "bundle.js"
+		    },
+		  ...
+		  devServer: {
+		      // serve 的根目录
+		    contentBase: _contentBase,
+		    port: 9000,
+		    // iframe模式和inline模式可选
+		    inline: true，
+		    ...
+		  }
+	 };
+>> 在package.json中添加
+	{
+	      ...
+	      "scripts": {
+	        "dev": "NODE_ENV=dev webpack-dev-server"
+	      }
+	      ...
+	}	
+
+>> 使用 定制Express路由	 
+
+	module.exports = {
+		  entry: {
+		    entry1_bundle: "./entry1.js",
+		    entry2_bundle: "./entry2.js"
+		  },
+		  output: {
+		        path: __dirname,
+		        filename: "bundle.js"
+		    },
+		  ...
+		  devServer: {
+		      // serve 的根目录
+		    contentBase: _contentBase,
+		    port: 9000,
+		    // iframe模式和inline模式可选
+		    inline: true,
+		    setup: function(app) {
+		      app.use(function(req, res, next) {
+		        //...
+		        return next();
+		      });
+		      app.get(['*.shtml','*.html'], function(req, res, next) {
+		        //...
+
+		        //将实时更新的脚本引入到页面中
+		        res.end('<script src="http://localhost:9000/webpack-dev-server.js"></script>')
+		      })
+		    }
+		  }
+	  };
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>快递模板页面</title>
+
+<!-- 加载css 控制器 -->
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <!-- 加载jq ui 模版 -->
+  <script src='js/jquery-ui/jquery-ui.min.js'></script>
+  <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" /> 
+  <link href="css/style.css" rel="stylesheet" />
+
+ </head>
+ <body>
+ 	<div class="warp">
+ 		<div id='set' class="set">
+			<div id='select-wrapper' class="select-wrapper">
+				<span class="label">添加快递单信息:</span>	
+				<select id='select'>
+					<option data-id=0 value='收货人姓名'>收货人姓名</option>
+					<option data-id=1 value='收货人电话'>收货人电话</option>
+					<option data-id=2 value='收货人地址'>收货人地址</option>
+					<option data-id=3 value='收货人商品列表'>收货人商品列表</option>
+					<option data-id=4 value='发货人电话'>发货人电话</option>
+				</select>
+			</div>
+			<div id="imgUplod" class="imgUplod">
+					<span class="label">上传快递单背景图</span>
+					<div class="input-group">
+						<input class="" type='file'>
+					</div>
+			</div>
+		</div>
+		<div id='content' class='ui-widget-content order-content'></div>
+		<a id='submit-info' class="btn btn-default" href='javascript:void(0)'>保存</a>
+		<a id='preview' class="btn btn-default" href='javascript:void(0)'>预览</a>
+	</div>
+ </body>
+ <script>
+	$(function(){
+		var i=0;
+		/*$('body').on('dragstop','.info',function(){
+			console.log($(this).position());
+			$(this).data('position',$(this).position());
+		})*/
+		
+		/*$('body').on('resizestop','.info',function(){
+			console.log($(this).width()+'/'+$(this).height());
+			$(this).data('position',$(this).position());
+		})*/
+
+		$('#content').resizable();
+		$('body').on('click','.info-remove',function(){
+			$(this).parents('.info').remove();
+			console.log($(this).text());
+		})
+
+		$('body').on('click','.info-edit',function(){
+			console.log($(this).text());
+			$(this).siblings('.edit-box').show();
+		})
+		
+		$('body').on('click','.cancel-edit',function(){
+			$(this).parent().hide();
+		})
+		
+		$('body').on('click','.save-edit',function(){
+			var size=$(this).parents('.edit-box').find('.size-num').val()+'px';
+			var style=$(this).parents('.edit-box').find('.font-style').val();
+			var bold=$(this).parents('.edit-box').find('.is-bold')[0].checked;
+			console.log(size+'/'+style+'/'+bold);
+
+			$(this).parents('.info').find('.key-name').css({'font-family':style,'font-size':size});
+			if(bold){
+				$(this).parents('.info').find('.key-name').css('font-weight','bold');
+			}
+			$(this).parent().hide();
+		})
+
+		$('#select').val('');
+		$('#select').on('change',function(){
+			//生成一条信息
+			//alert($('option:selected',this).data('id'));
+			$oDiv=$('<div>').addClass('info').data('keyword',$(this).val()).data('index',i++).data('id',$('option:selected',this).data('id')).addClass('ui-widget-content').appendTo('#content').resizable().draggable({containment: "#content"}).css({'min-width':'200px','min-height':'32px','padding':'5px','position':'absolute'});
+			$oKey=$('<span>').addClass('key-name').text($(this).val()).appendTo($oDiv);
+
+			$('<a>').addClass('info-edit').text('编辑').css({'font-size':'12px','position':'absolute','right':'10px','top':'5px'}).attr('href','javascript:void(0)').appendTo($oDiv);
+					
+			$oEditBox=$('<div>').addClass('edit-box').css({'padding':'12px 12px','height':'200px','border':'1px solid #ddd','position':'absolute','right':'-200px','top':'0px','background':'#fff'}).hide().appendTo($oDiv);
+			
+			$oSize=$('<div>').css({'width':'100%','padding':'5px 0','margin-top':'30px'}).appendTo($oEditBox);
+			$('<span>').text('字体大小：').appendTo($oSize);
+			$('<input type="number">').addClass('size-num').css({'border':'1px solid #ddd','width':'55px','padding':'0 0 0 5px','margin-right':'5px'}).val(12).appendTo($oSize);
+			$('<span>').text('px').appendTo($oSize);
+
+			$oFont=$('<div>').css({'width':'100%','padding':'5px 0',}).appendTo($oEditBox);
+			$('<span>').text('字体样式：').appendTo($oFont);
+			$oFontSelect=$('<select>').addClass('font-style').css({'border':'1px solid #ddd'}).appendTo($oFont);
+			$('<option>').val('SimSun').text('宋体').appendTo($oFontSelect);
+			$('<option>').val('SimHei').text('黑体').appendTo($oFontSelect);
+			$('<option>').val('FangSong').text('仿宋').attr('selected',true).appendTo($oFontSelect);
+			$('<option>').val('KaiTi').text('楷体').appendTo($oFontSelect);
+			$('<option>').val('Microsoft YaHei').text('微软雅黑体').appendTo($oFontSelect);
+			
+			$oBold=$('<div>').css({'width':'100%','padding':'5px 0',}).appendTo($oEditBox);
+			$('<span>').text('是否加粗：').appendTo($oBold);
+			$('<input type="checkbox">').css({'border':'1px solid #ddd','width':'15px','height':'15px','position':'relative','top':'2px'}).addClass('is-bold').attr('checked',false).appendTo($oBold);
+			
+			$('<a>').addClass('info-remove btn btn-sm btn-default').text('移除该项').css({'position':'absolute','bottom':'12px','left':'67px'}).attr('href','javascript:void(0)').appendTo($oEditBox);
+			$('<a> <img src="images/iconClose.png" />').attr('href','javascript:void(0)').addClass('cancel-edit').css({'position':'absolute','top':'5px','right':'12px','width':'15px','height':'15px'}).appendTo($oEditBox);
+			$('<a>').attr('href','javascript:void(0)').addClass('save-edit  btn btn-sm btn-default').css({'position':'absolute','bottom':'12px','left':'12px'}).text('保存').appendTo($oEditBox);
+
+			$(this).val('');
+		})
+		$('#submit-info').on('click',function(){
+			var data=new Object();
+			data['wrap']=new Object();
+			data['info']=new Object();
+			data['wrap']['width']=$('#content').width();
+			data['wrap']['height']=$('#content').height();
+			$('.info').each(function(idx){
+				data['info'][idx]=new Object();
+				data['info'][idx]['x']=$(this).position().left;
+				data['info'][idx]['y']=$(this).position().top;
+				data['info'][idx]['keyword']=$(this).data('keyword');
+				data['info'][idx]['width']=$(this).width();
+				data['info'][idx]['height']=$(this).height();
+				data['info'][idx]['size']=$(this).find('.key-name').css('font-size');
+				data['info'][idx]['bold']=($(this).find('.key-name').css('font-weight')=='bold')?'true':'false';
+			})
+			console.log(data);
+			//$.ajax({})
+		})
+		$('#preview').on('click',function(){
+			
+		})
+	})
+  </script>
+</html>

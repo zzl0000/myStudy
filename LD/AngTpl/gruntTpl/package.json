@@ -1,0 +1,27 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "grund": "^1.0.7",
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-croc-qunit": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "description": "gruntTemplate"
+}

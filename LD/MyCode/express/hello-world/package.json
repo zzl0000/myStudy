@@ -1,0 +1,12 @@
+{
+  "name": "hellp-word",
+  "version": "1.0.0",
+  "description": "hello world test app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "express": "^4.15.2"
+  }
+}
