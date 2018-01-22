@@ -1,0 +1,59 @@
+<!-- 
+ *	HTML DOM 元素对象
+ *  version 1.0
+ *  time 2017 7 12
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML DOM 元素对象</title>
+</head>
+
+<body>
+    <div class="access_tp">
+        <a class="access_key" href="http://www.baidu.com">baidu</a>
+    </div>
+    <div class="addEventListener">
+        <button id="myBtn">addEventListener</button>
+        <div id="demo"></div>
+    </div>
+    <script type="text/javascript">
+    // accessKey 属性可设置或返回访问单选按钮的快捷键。
+    // 注意： 请使用 Alt + accessKey 为拥有指定快捷键的元素赋予焦点。
+    
+    function accessKey() {
+        document.querySelector(".access_key").accessKey = "b"
+    }
+    accessKey()
+    //addEventListener() 方法用于向指定元素添加事件句柄。
+    //提示： 使用 removeEventListener() 方法来移除 addEventListener() 方法添加的事件句柄。
+    // IE8 及更早版本不兼容
+    document.getElementById("myBtn").addEventListener("click", myfn);
+
+    function myfn() {
+        document.getElementById("demo").innerHTML = "Hello World";
+    }
+
+
+    //appendChild() 方法可向节点的子节点列表的末尾添加新的子节点。
+    //提示：如果文档树中已经存在了 newchild，它将从文档树中删除，然后重新插入它的新位置。如果 newchild 是 DocumentFragment 节点，则不会直接插入它，而是把它的子节点按序插入当前节点的 childNodes[] 数组的末尾。
+    //你可以使用 appendChild() 方法移除元素到另外一个元素。
+    
+
+    // attributes 属性返回指定节点属性的集合。
+    document.getElementsByTagName("BUTTON")[0].attributes;
+
+ 	// classList 属性返回元素的类名，作为 DOMTokenList 对象。
+	// 该属性用于在元素中添加，移除及切换 CSS 类。
+	// classList 属性是只读的，但你可以使用 add() 和 remove() 方法修改它。
+
+	document.getElementById("myDIV").classList.add("mystyle");
+	
+	document.write(document.getElementById('myid').className);
+
+    </script>
+</body>
+
+</html>
