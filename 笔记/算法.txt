@@ -1,0 +1,13 @@
+
+
+1. 数组去重 
+
+常见的方法有：
+indexOf() 下标查找
+filiter() 和 forEach中的includes方法
+
+!obj[arr[i]] 利用Objiect对象下标属性
+
+2.排序
+
+常见的 冒泡排序  快速排序 插入排序 
