@@ -64,10 +64,10 @@ var o = new Object()
 
 '局部作用域中修改的对象不会再全局作用域中反映出来'
 
-function setName(obj) {
-    obj.name = 'Nicholas'
-    obj = new Object()
-    boj.name = 'Greg'
+function setName (obj) {
+  obj.name = 'Nicholas'
+  obj = new Object()
+  boj.name = 'Greg'
 }
 
 var person = new Object();
@@ -79,11 +79,11 @@ alert(person) // 'Nicolas'
 '检测类型 -- 基础类型 typeof（）'
 
 var s = 'Nicholad',
-    n = null,
-    b = true,
-    i = 22,
-    u,
-    o = new Object()
+  n = null,
+  b = true,
+  i = 22,
+  u,
+  o = new Object()
 
 alert(typeof (s))   //   string
 alert(typeof (n))   //   object || undefined
@@ -107,12 +107,12 @@ alert(person instanceof RegExp)  // '变量person是RegExp吗？'
 
 'tray catch  和with语句 可以用来延长作用域链'
 
-function buildDurl() {
-    var qs = '?debug=true';
-    with (location) {
-        var url = href + qa;
-    }
-    return url;
+function buildDurl () {
+  var qs = '?debug=true';
+  with (location) {
+    var url = href + qa;
+  }
+  return url;
 }
 
 
@@ -137,12 +137,12 @@ function buildDurl() {
 //  只有一个全局执行环境 
 
 if (value instanceof Array) {
-    //  执行操作
+  //  执行操作
 }
 
 // ie9 + 
 if (Array.isArray(value)) {
-    //  执行操作
+  //  执行操作
 }
 
 '5.2.2 转换方法'
@@ -172,14 +172,14 @@ unshift() // 和shift()用法相反
 reverse() // 反转数组顺序
 sort() //升序排序
 
-function compare(value1, value2) {
-    if (value1 < value2) {
-        return -1
-    } else if (value1 > value2) {
-        return 1
-    } else {
-        return 0
-    }
+function compare (value1, value2) {
+  if (value1 < value2) {
+    return -1
+  } else if (value1 > value2) {
+    return 1
+  } else {
+    return 0
+  }
 }
 
 var values = [0, 1, 5, 10, 15]
@@ -228,31 +228,31 @@ some() //对数组中的每一项运行给定函数，如果该函数对任一�
 var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
 
 var everyResult = numbers.every(function (item, index, array) {
-    return (item > 2)
+  return (item > 2)
 })
 
 alert(everyResult) // false
 
 var someResult = numbers.some(function (item, index, array) {
-    return (item > 2)
+  return (item > 2)
 })
 
 alert(someResult) // true
 
 var filterResult = numbers.filter(function (item, index, array) {
-    return (item > 2)
+  return (item > 2)
 })
 
 alert(filterResult) // 3,4,5,4,3
 
 var mapResult = numbers.map(function () {
-    return item * 2
+  return item * 2
 })
 
 alert(mapResult) // 2,4,6,8,10,8,6,4,2
 
 numbers.forEach(function (item, index, array) {
-    //执行操作
+  //执行操作
 })
 
 '5.29  归并方法'
@@ -263,13 +263,13 @@ reduceRight() //从数组的z最后一项开始，迭代所有数组项，然后
 var vaules = [1, 2, 3, 4, 5]
 
 var sum = values.reduce(function (perv, cur, index, array) {
-    return perv + cur
+  return perv + cur
 })
 
 alert(sum) // 15
 
 var sum = values.reduceRight(function (prev, cur, index, array) {
-    return prev + cur
+  return prev + cur
 })
 
 alert(sum) // 15
@@ -325,12 +325,12 @@ now.setMinutes()
 
 '函数的构建类型 : 1.声明式 2.函数表达式 3.Function构造式'
 
-function sum(num1, num2) {
-    return num1 + num2
+function sum (num1, num2) {
+  return num1 + num2
 }
 
 var sum = function (num1, num2) {
-    return num1 + num2
+  return num1 + num2
 }
 
 var sum = new Function('num1', 'num2', 'return num1 + num2'); // 不推荐
@@ -339,18 +339,18 @@ var sum = new Function('num1', 'num2', 'return num1 + num2'); // 不推荐
 
 // 例子 通过不同属性 sort()排序比较
 
-function createCompareFn(name) {
-    return function (obj1, obj2) {
-        var value1 = obj1[name]
-        var value2 = obj2[name]
-        if (value1 > value2) {
-            return 1
-        } else if (value1 < value2) {
-            return -1
-        } else {
-            return 0
-        }
+function createCompareFn (name) {
+  return function (obj1, obj2) {
+    var value1 = obj1[name]
+    var value2 = obj2[name]
+    if (value1 > value2) {
+      return 1
+    } else if (value1 < value2) {
+      return -1
+    } else {
+      return 0
     }
+  }
 }
 
 var data = [{ name: 'zachary', age: '28' }, { name: 'nicholas', age: '29' }]
@@ -368,12 +368,12 @@ alert(data[0].name) // zachary
 
 // 阶乘函数
 
-function factorial(num) {
-    if (num <= 1) {
-        return 1
-    } else {
-        return num * arguments.callee(num - 1)
-    }
+function factorial (num) {
+  if (num <= 1) {
+    return 1
+  } else {
+    return num * arguments.callee(num - 1)
+  }
 }
 
 
@@ -383,25 +383,25 @@ function factorial(num) {
 
 // length  表示函数希望接收的命名参数个数
 
-function sayName(name) {
-    alert(name)
+function sayName (name) {
+  alert(name)
 }
 
 alert(sayName.length) // 1
 
 //prototype apply() call() bind()
 
-function sum(num1, num2) {
-    return num1 + num2
+function sum (num1, num2) {
+  return num1 + num2
 }
 
-function applySum(num1, num2) {
-    //return sum.apply(this, [num1, num2])
-    return sum.apply(this, arguments)
+function applySum (num1, num2) {
+  //return sum.apply(this, [num1, num2])
+  return sum.apply(this, arguments)
 }
 
-function callSum(num1, num2) {
-    return sum.call(this, num1, num2)
+function callSum (num1, num2) {
+  return sum.call(this, num1, num2)
 }
 
 alert(applySum(10, 10)) // 20
@@ -411,8 +411,8 @@ alert(callSum(10, 10)) // 20
 window.color = 'red'
 var o = { color: 'blue' }
 
-function sayColor() {
-    alert(color)
+function sayColor () {
+  alert(color)
 }
 
 var objSayColor = sayColor.bind(0)
@@ -471,15 +471,15 @@ alert(stringValue.toLowerCase()) // 'hello world'
 
 '5.6.6.字符串匹配方法'
 
-function htmlEscape(text) {
-    return text.replace(/[<>"&]/g, function (match, pos, originalText) {
-        switch (match) {
-            case '<': return '&lt;';
-            case '>': return '&gt;';
-            case '&': return '&amp;';
-            case '\"': return '&qut;';
-        }
-    })
+function htmlEscape (text) {
+  return text.replace(/[<>"&]/g, function (match, pos, originalText) {
+    switch (match) {
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '&': return '&amp;';
+      case '\"': return '&qut;';
+    }
+  })
 }
 alert(htmlEscape("<p class=\"greeting\">Hello World!</p>"))  // 
 
@@ -509,7 +509,7 @@ decodeURIComponent(url)
 '5.7.1.4 window对象'
 
 var global = function () {
-    return this;
+  return this;
 }();
 
 '5.7.2 Math 对象'
@@ -537,12 +537,12 @@ Math.round('25.5') // 26  // 执行四舍五入
 
 // 值 = Math.floor(Math.random * 可能值得总是 + 第一个可能在 )  --- 从某个整数访问随机取一个值
 
-function selectForm(lowerValue, upperValue) {
-    var choicce = upperValue - lowerValue + 1
-    return Math.floor(Math.random * choicce + lowerValue )
+function selectForm (lowerValue, upperValue) {
+  var choicce = upperValue - lowerValue + 1
+  return Math.floor(Math.random * choicce + lowerValue)
 }
 
-var num = selectForm(2,10)
+var num = selectForm(2, 10)
 
 alert(num) // 介于2-10之间的一个随机数
 
@@ -570,6 +570,9 @@ alert(num) // 介于2-10之间的一个随机数
 
 
 
+//JS实现一个对象给另外一个对象赋值
+
+const listAssign = (arra, arrb) => Object.keys(arra).forEach(key => { arra[key] = arrb[key] || arra[key] })
 
 
 

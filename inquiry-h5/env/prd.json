@@ -1,0 +1,8 @@
+{
+  "VUE_APP_BASE_URL": "https://api.rsm-lab.com",
+  "VUE_APP_BASE_URL_TOPSALES": "https://app.rsm-lab.com",
+  "VUE_APP_BASE_URL_BIGDATA" : "https://aureuma-datacenter.redstarclouds.com/data-c/aureuma/collect",
+  "VUE_APP_APPID": "wx916be9a3031cf26e",
+  "VUE_APP_ENV": "prd",
+  "EXT_APPID": "wx26f9f90ea903eb27"
+}

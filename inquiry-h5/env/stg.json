@@ -1,0 +1,8 @@
+{
+  "VUE_APP_BASE_URL": "https://mlab-api.mklsoft-test.com",
+  "VUE_APP_BASE_URL_TOPSALES": "https://mlab-app.mklsoft-test.com",
+  "VUE_APP_BASE_URL_BIGDATA": "https://aureuma-datacenter.redstarclouds.cn/data-c/aureuma/collect",
+  "VUE_APP_ENV": "stg",
+  "VUE_APP_APPID": "wx39461d60797dc99a",
+  "EXT_APPID": "wx8a2308b9c38d6d71"
+}

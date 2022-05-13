@@ -1,0 +1,6 @@
+{
+  "VUE_APP_BASE_URL": "http://mlab-api.uat1.rscloud.com",
+  "VUE_APP_BASE_URL_TOPSALES": "http://mlab-app.uat1.rscloud.com",
+  "VUE_APP_BASE_URL_BIGDATA" : "https://aureuma-datacenter.redstarclouds.com/data-c/aureuma/collect",
+  "VUE_APP_ENV": "uat1"
+}

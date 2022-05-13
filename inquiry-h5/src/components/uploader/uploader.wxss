@@ -1,0 +1,64 @@
+.weui-uploader__bd {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: unset;
+}
+
+.weui-uploader__file {
+  position: relative;
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 8rpx;
+}
+
+.weui-uploader__delete {
+  position: absolute;
+  right: -20rpx;
+  top: -20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 1;
+}
+
+.weui-uploader__file-content {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0, 0);
+}
+
+.weui-uploader__input-box {
+  position: relative;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  width: 210rpx;
+  height: 210rpx;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  border-radius: 8rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weui-uploader__input-box::before,
+.weui-uploader__input-box::after {
+  display: none;
+}
+
+.weui-uploader__input {
+  position: relative;
+  width: 96rpx;
+  height: 96rpx;
+  opacity: 1;
+}
+
