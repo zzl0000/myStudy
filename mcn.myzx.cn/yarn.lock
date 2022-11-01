@@ -2112,7 +2112,7 @@
 
 "@videojs/http-streaming@2.13.1":
   version "2.13.1"
-  resolved "https://registry.yarnpkg.com/@videojs/http-streaming/-/http-streaming-2.13.1.tgz#b7688d91eec969181430e00868b514b16b3b21b7"
+  resolved "https://registry.npmjs.org/@videojs/http-streaming/-/http-streaming-2.13.1.tgz"
   integrity sha512-1x3fkGSPyL0+iaS3/lTvfnPTtfqzfgG+ELQtPPtTvDwqGol9Mx3TNyZwtSTdIufBrqYRn7XybB/3QNMsyjq13A==
   dependencies:
     "@babel/runtime" "^7.12.5"
@@ -2126,7 +2126,7 @@
 
 "@videojs/vhs-utils@3.0.4":
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-3.0.4.tgz#e253eecd8e9318f767e752010d213587f94bb03a"
+  resolved "https://registry.npmjs.org/@videojs/vhs-utils/-/vhs-utils-3.0.4.tgz"
   integrity sha512-hui4zOj2I1kLzDgf8QDVxD3IzrwjS/43KiS8IHQO0OeeSsb4pB/lgNt1NG7Dv0wMQfCccUpMVLGcK618s890Yg==
   dependencies:
     "@babel/runtime" "^7.12.5"
@@ -2135,7 +2135,7 @@
 
 "@videojs/vhs-utils@^3.0.0", "@videojs/vhs-utils@^3.0.2", "@videojs/vhs-utils@^3.0.4":
   version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@videojs/vhs-utils/-/vhs-utils-3.0.5.tgz#665ba70d78258ba1ab977364e2fe9f4d4799c46c"
+  resolved "https://registry.npmjs.org/@videojs/vhs-utils/-/vhs-utils-3.0.5.tgz"
   integrity sha512-PKVgdo8/GReqdx512F+ombhS+Bzogiofy1LgAj4tN8PfdBx3HSS7V5WfJotKTqtOWGwVfSWsrYN/t09/DSryrw==
   dependencies:
     "@babel/runtime" "^7.12.5"
@@ -2144,53 +2144,12 @@
 
 "@videojs/xhr@2.6.0":
   version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@videojs/xhr/-/xhr-2.6.0.tgz#cd897e0ad54faf497961bcce3fa16dc15a26bb80"
+  resolved "https://registry.npmjs.org/@videojs/xhr/-/xhr-2.6.0.tgz"
   integrity sha512-7J361GiN1tXpm+gd0xz2QWr3xNWBE+rytvo8J3KuggFaLg+U37gZQ2BuPLcnkfGffy2e+ozY70RHC8jt7zjA6Q==
   dependencies:
     "@babel/runtime" "^7.5.5"
     global "~4.4.0"
     is-function "^1.0.1"
-
-"@videojs/http-streaming@2.13.1":
-  "integrity" "sha512-1x3fkGSPyL0+iaS3/lTvfnPTtfqzfgG+ELQtPPtTvDwqGol9Mx3TNyZwtSTdIufBrqYRn7XybB/3QNMsyjq13A=="
-  "resolved" "https://registry.npmjs.org/@videojs/http-streaming/-/http-streaming-2.13.1.tgz"
-  "version" "2.13.1"
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "@videojs/vhs-utils" "3.0.4"
-    "aes-decrypter" "3.1.2"
-    "global" "^4.4.0"
-    "m3u8-parser" "4.7.0"
-    "mpd-parser" "0.21.0"
-    "mux.js" "6.0.1"
-    "video.js" "^6 || ^7"
-
-"@videojs/vhs-utils@^3.0.0", "@videojs/vhs-utils@^3.0.2", "@videojs/vhs-utils@^3.0.4":
-  "integrity" "sha512-PKVgdo8/GReqdx512F+ombhS+Bzogiofy1LgAj4tN8PfdBx3HSS7V5WfJotKTqtOWGwVfSWsrYN/t09/DSryrw=="
-  "resolved" "https://registry.npmjs.org/@videojs/vhs-utils/-/vhs-utils-3.0.5.tgz"
-  "version" "3.0.5"
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "global" "^4.4.0"
-    "url-toolkit" "^2.2.1"
-
-"@videojs/vhs-utils@3.0.4":
-  "integrity" "sha512-hui4zOj2I1kLzDgf8QDVxD3IzrwjS/43KiS8IHQO0OeeSsb4pB/lgNt1NG7Dv0wMQfCccUpMVLGcK618s890Yg=="
-  "resolved" "https://registry.npmjs.org/@videojs/vhs-utils/-/vhs-utils-3.0.4.tgz"
-  "version" "3.0.4"
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    "global" "^4.4.0"
-    "url-toolkit" "^2.2.1"
-
-"@videojs/xhr@2.6.0":
-  "integrity" "sha512-7J361GiN1tXpm+gd0xz2QWr3xNWBE+rytvo8J3KuggFaLg+U37gZQ2BuPLcnkfGffy2e+ozY70RHC8jt7zjA6Q=="
-  "resolved" "https://registry.npmjs.org/@videojs/xhr/-/xhr-2.6.0.tgz"
-  "version" "2.6.0"
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "global" "~4.4.0"
-    "is-function" "^1.0.1"
 
 "@vitejs/plugin-legacy@^1.5.1":
   version "1.6.4"
@@ -2451,14 +2410,9 @@
     windicss "^3.4.2"
 
 "@xmldom/xmldom@^0.7.2":
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.5.tgz#09fa51e356d07d0be200642b0e4f91d8e6dd408d"
-  integrity sha512-V3BIhmY36fXZ1OtVcI9W+FxQqxVLsPKcNjWigIaa81dLC9IolJl5Mt4Cvhmr0flUnjSpTdrbMTSbXqYqV5dT6A==
-
-"@xmldom/xmldom@^0.7.2":
-  "integrity" "sha512-V3BIhmY36fXZ1OtVcI9W+FxQqxVLsPKcNjWigIaa81dLC9IolJl5Mt4Cvhmr0flUnjSpTdrbMTSbXqYqV5dT6A=="
-  "resolved" "https://registry.npmjs.org/@xmldom/xmldom/-/xmldom-0.7.5.tgz"
-  "version" "0.7.5"
+  version "0.7.8"
+  resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.7.8.tgz#a8d0a0067c9554c187b0d04e86ad1845053c0e06"
+  integrity sha512-PrJx38EfpitFhwmILRl37jAdBlsww6AZ6rRVK4QS7T7RHLhX7mSs647sTmgr9GIxe3qjXdesmomEgbgaokrVFg==
 
 "@zxcvbn-ts/core@^1.0.0-beta.0":
   version "1.2.0"
